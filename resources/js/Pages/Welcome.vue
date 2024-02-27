@@ -1,5 +1,5 @@
 <script setup>
-import { useForm } from '@inertiajs/inertia-vue3';
+import { useForm, Head } from '@inertiajs/inertia-vue3';
 
 const form = useForm({
     name: 'sukanta',
@@ -13,6 +13,7 @@ const clickHandler = async () => {
 </script>
 
 <template>
+    <Head title="Welcome" />
     <div class="test-class">
         <h1>
             Welcome to your new Inertia app! With Vue 3 and Vite ⚡️and laravel 10.
