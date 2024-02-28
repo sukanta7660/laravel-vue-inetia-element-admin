@@ -1,11 +1,11 @@
-import defaultSettings from '@/utils/settings';
+import {defaultSettings} from '@/utils/settings';
 const { showSettings, fixedHeader, sidebarLogo } = defaultSettings
 
 const state = () => {
     return {
-        showSettings,
-        fixedHeader,
-        sidebarLogo
+        showSettings: showSettings,
+        fixedHeader: fixedHeader,
+        sidebarLogo: sidebarLogo
     };
 };
 

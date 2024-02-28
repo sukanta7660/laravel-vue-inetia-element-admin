@@ -3,7 +3,7 @@ import Store from '@/store';
 const state = () => {
     return {
         sidebar: {
-            opened: Store.get('sidebarStatus') ? !!+Store.get('sidebarStatus') : true,
+            opened: true,
             withoutAnimation: false
         }
     };
