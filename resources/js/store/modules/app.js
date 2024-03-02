@@ -1,4 +1,4 @@
-import store from '@/store';
+import Store from '@/store';
 
 const state = () => {
     return {
@@ -14,14 +14,14 @@ const mutations = {
     TOGGLE_SIDEBAR: (state) => {
         state.sidebar.opened = !state.sidebar.opened
         state.sidebar.withoutAnimation = false
-        if (state.sidebar.opened) {
-            store.set('sidebarStatus', 1)
-        } else {
-            store.set('sidebarStatus', 0)
-        }
+        // if (state.sidebar.opened) {
+        //     Store.set('sidebarStatus', 1)
+        // } else {
+        //     Store.set('sidebarStatus', 0)
+        // }
     },
     CLOSE_SIDEBAR: (state, withoutAnimation) => {
-        store.set('sidebarStatus', 0)
+        // Store.set('sidebarStatus', 0)
         state.sidebar.opened = false
         state.sidebar.withoutAnimation = withoutAnimation
     },
