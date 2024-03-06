@@ -1,7 +1,7 @@
 <template>
     <template v-if="icon">
-        <el-icon v-if="icon.includes('el-icon')" class="sub-el-icon">
-            <component :is="icon.replace('el-icon-', '')"></component>
+        <el-icon class="sub-el-icon">
+            <HomeFilled />
         </el-icon>
 <!--        <svg-icon v-else :icon-class="icon"></svg-icon>-->
     </template>
@@ -9,6 +9,8 @@
 </template>
 
 <script setup>
+import {HomeFilled} from "@element-plus/icons-vue";
+
 defineProps({
     icon: {
         type: String,

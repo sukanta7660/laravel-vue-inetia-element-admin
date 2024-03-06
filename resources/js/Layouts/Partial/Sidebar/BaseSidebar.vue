@@ -13,10 +13,9 @@
                 mode="vertical"
             >
                 <SidebarItem
-                    v-for="item in sidebarItems"
+                    v-for="item in menu"
                     :key="item.uri"
                     :item="item"
-                    :base-path="item.uri"
                 />
             </el-menu>
         </el-scrollbar>

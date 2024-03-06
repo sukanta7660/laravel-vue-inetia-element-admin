@@ -1,22 +1,15 @@
 <template>
-    <div v-if="!item.hidden">
-        <template
-            v-if="
-        hasOneShowingChild(item.children, item) &&
-        (!onlyOneChild.children || onlyOneChild.noShowingChildren) &&
-        !item.alwaysShow
-      "
-        >
-            <SidebarLink v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
+    <div v-if="item.is_active">
+        <template v-if="!item.children">
+            <SidebarLink :href="item.link">
                 <el-menu-item
-                    :index="resolvePath(onlyOneChild.path)"
                     :class="{ 'submenu-title-noDropdown': !isNest }"
                 >
-                    <item
-                        :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
+                    <Item
+                        icon="Edit"
                     />
                     <template #title>
-                        {{ onlyOneChild.meta.title }}
+                        {{ item.name }}
                     </template>
                 </el-menu-item>
             </SidebarLink>
@@ -25,100 +18,38 @@
         <el-sub-menu
             v-else
             ref="subMenu"
-            :index="resolvePath(item.path)"
+            index="1"
             popper-append-to-body
         >
             <template #title>
-                <item
-                    v-if="item.meta"
-                    :icon="item.meta && item.meta.icon"
-                    :title="item.meta.title"
+                <Item
+                    icon="EditPen"
+                    :title="item.name"
                 />
             </template>
-            <sidebar-item
+            <SidebarItem
                 v-for="child in item.children"
-                :key="child.path"
+                :key="child.link"
                 :is-nest="true"
                 :item="child"
-                :base-path="resolvePath(child.path)"
                 class="nest-menu"
             />
         </el-sub-menu>
     </div>
 </template>
 
-<script>
-import path from 'path';
-import { isExternal } from '@/utils/validate'
-import Item from "./BaseItem.vue";
-import SidebarLink from "./SidebarLink.vue";
-import { useFixBug } from "./FixiOSBug";
-import { ref } from "vue";
+<script setup>
+import SidebarLink from "@/Layouts/Partial/Sidebar/SidebarLink.vue";
+import Item from "@/Layouts/Partial/Sidebar/BaseItem.vue";
 
-export default {
-    name: 'SidebarItem',
-    components: {SidebarLink, Item },
-    props: {
-        // route object
-        item: {
-            type: Object,
-            required: true,
-        },
-        isNest: {
-            type: Boolean,
-            default: false,
-        },
-        basePath: {
-            type: String,
-            default: '',
-        },
+const props = defineProps({
+    item: {
+        type: Object,
+        required: true,
     },
-    setup(props) {
-        const onlyOneChild = ref(null)
-
-        const subMenu = useFixBug()
-
-        const hasOneShowingChild = (children = [], parent) => {
-            const showingChildren = children.filter((item) => {
-                if (item.hidden) {
-                    return false
-                } else {
-                    // Temp set(will be used if only has one showing child)
-                    onlyOneChild.value = item
-                    return true
-                }
-            })
-
-            // When there is only one child router, the child router is displayed by default
-            if (showingChildren.length === 1) {
-                return true
-            }
-
-            // Show parent if there are no child router to display
-            if (showingChildren.length === 0) {
-                onlyOneChild.value = { ...parent, path: '', noShowingChildren: true }
-                return true
-            }
-
-            return false
-        }
-
-        const resolvePath = (routePath) => {
-            if (isExternal(routePath)) {
-                return routePath
-            }
-            if (isExternal(props.basePath)) {
-                return props.basePath
-            }
-            return path.resolve(props.basePath, routePath)
-        }
-
-        return {
-            subMenu,
-            onlyOneChild,
-            hasOneShowingChild,
-            resolvePath,
-        }
-    },
-}
+    isNest: {
+        type: Boolean,
+        default: false,
+    }
+});
 </script>
