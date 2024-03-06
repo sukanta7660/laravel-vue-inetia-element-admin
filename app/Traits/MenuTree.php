@@ -216,6 +216,8 @@ trait MenuTree
     /**
      * Get all elements.
      *
+     * @param $menuId
+     * @param null $ignoreItemId
      * @return mixed
      */
     public function allNodes($menuId, $ignoreItemId = null) : mixed

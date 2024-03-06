@@ -14,9 +14,9 @@
             >
                 <SidebarItem
                     v-for="item in sidebarItems"
-                    :key="item.path"
+                    :key="item.uri"
                     :item="item"
-                    :base-path="item.path"
+                    :base-path="item.uri"
                 />
             </el-menu>
         </el-scrollbar>
@@ -27,30 +27,23 @@
 import { useStore } from "vuex";
 import Logo from "./SidebarLogo.vue";
 import SidebarItem from "./SidebarItem.vue";
-import { computed } from "vue";
-// import { useRoute, useRouter } from 'vue-router'
-// import variablesV from "@/assets/scss/variable.scss";
+import {computed, reactive} from "vue";
+import {usePage} from "@inertiajs/vue3";
 
 const store = useStore();
-// const router = useRouter()
-// const route = useRoute()
 
 const sidebarItems = [];
 
 const sidebar = computed(() => store.getters.sidebar)
-// const routes = computed(() => router.options.routes)
+
+const {url} = usePage();
+
+let menu = reactive({});
+menu = computed(() => usePage().props.navigation.menu)
 
 const activeMenu = computed(() => {
-    // const { meta, path } = route
-    // if set path, the sidebar will highlight the path you set
-    // if (meta.activeMenu) {
-    //     return meta.activeMenu
-    // }
-    // return path
-
     return '';
 })
 const showLogo = computed(() => store.state.settings.sidebarLogo)
 const isCollapse = computed(() => !sidebar.value.opened)
-// const variables = computed(() => variablesV)
 </script>
