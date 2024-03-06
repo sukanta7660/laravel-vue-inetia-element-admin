@@ -2,9 +2,12 @@
 <!--    <component :is="type" v-bind="linkProps(href)">-->
 <!--        <slot />-->
 <!--    </component>-->
-    <Link :href="href" :class="classes">
+    <Link v-if="!isExternalLink" :href="href" :class="classes">
         <slot />
     </Link>
+    <a v-else :href="href" target="_blank" rel="noopener" v-if="isExternal(href)">
+        <slot />
+    </a>
 </template>
 
 <script setup>
@@ -25,7 +28,7 @@ const props = defineProps({
 
 const classes = computed(() => props.active ? 'active' : '');
 
-// const isExternalLink = computed(() => isExternal(props.href));
+const isExternalLink = computed(() => isExternal(props.href));
 //
 // const type = computed(() => {
 //     if (isExternalLink.value) {
