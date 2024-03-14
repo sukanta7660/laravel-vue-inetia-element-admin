@@ -6,7 +6,7 @@
                     :class="{ 'submenu-title-noDropdown': !isNest }"
                 >
                     <Item
-                        icon="HomeFilled"
+                        :icon="item.icon"
                     />
                     <template #title>
                         {{ item.name }}
@@ -23,7 +23,7 @@
         >
             <template #title>
                 <Item
-                    icon="HomeFilled"
+                    :icon="item.icon"
                     :title="item.name"
                 />
             </template>

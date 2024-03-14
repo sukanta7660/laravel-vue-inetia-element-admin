@@ -1,15 +1,22 @@
 <template>
     <template v-if="icon">
-        <el-icon class="sub-el-icon">
+        <SvgIcon
+            v-if="props.icon.startsWith('mdi')"
+            type="mdi" :path="menuIcon"
+            class="sub-el-icon"
+            :size="20"
+        />
+        <el-icon v-else class="sub-el-icon">
             <component :is="menuIcon" />
         </el-icon>
-<!--        <svg-icon v-else :icon-class="icon"></svg-icon>-->
     </template>
     <span v-if="title">{{ title }}</span>
 </template>
 
 <script setup>
-import * as icons from "@element-plus/icons-vue";
+import * as elIcons from "@element-plus/icons-vue";
+import SvgIcon from '@jamescoyle/vue-icon'
+import * as mdiIcons from "@mdi/js";
 import {computed} from "vue";
 
 const props = defineProps({
@@ -28,6 +35,10 @@ const menuIcon = computed(() => {
         return null;
     }
 
-    return icons[props.icon];
+    if (props.icon.startsWith('mdi')) {
+        return mdiIcons[props.icon];
+    }
+
+    return elIcons[props.icon];
 });
 </script>

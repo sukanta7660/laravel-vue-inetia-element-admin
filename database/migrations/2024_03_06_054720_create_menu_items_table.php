@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('uri')->nullable();
             $table->string('description')->nullable();
+            $table->string('icon')->nullable();
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->integer('sort')->default(0);
             $table->boolean('is_active')->default(1);

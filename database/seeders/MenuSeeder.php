@@ -17,18 +17,21 @@ class MenuSeeder extends Seeder
             [
                 'name'      => 'Dashboard',
                 'uri'       => '<nolink>',
+                'icon'      => 'HomeFilled',
                 'is_active' => 1,
                 'sort'      => 0,
             ],
             [
                 'name'      => 'Access Control',
                 'uri'       => '<nolink>',
+                'icon'      => 'mdiShield',
                 'is_active' => 1,
                 'sort'      => 1,
             ],
             [
                 'name'      => 'Settings',
                 'uri'       => '<nolink>',
+                'icon'      => 'Setting',
                 'is_active' => 1,
                 'sort'      => 2,
             ]
