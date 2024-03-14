@@ -1,19 +1,21 @@
 <template>
-<!--    <component :is="type" v-bind="linkProps(href)">-->
-<!--        <slot />-->
-<!--    </component>-->
-    <Link v-if="!isExternalLink" :href="href" :class="classes">
-        <slot />
-    </Link>
-    <a v-else :href="href" target="_blank" rel="noopener" v-if="isExternal(href)">
-        <slot />
+    <a href="#" rel="noopener" v-if="!hasLink" @click.prevent>
+        <slot/>
     </a>
+
+    <a v-else-if="isExternalLink" :href="href" target="_blank" rel="noopener">
+        <slot/>
+    </a>
+
+    <Link v-else :href="href" :class="classes">
+        <slot/>
+    </Link>
 </template>
 
 <script setup>
 import {Link} from "@inertiajs/vue3";
 import {computed} from "vue";
-import { isExternal } from "@/utils/validate";
+import {isExternal} from "@/utils/validate";
 
 const props = defineProps({
     href: {
@@ -29,25 +31,17 @@ const props = defineProps({
 const classes = computed(() => props.active ? 'active' : '');
 
 const isExternalLink = computed(() => isExternal(props.href));
-//
-// const type = computed(() => {
-//     if (isExternalLink.value) {
-//         return 'a';
-//     }
-//     return 'Link';
-// });
-//
-// const linkProps = (href) => {
-//     console.log('isExternalLink.value', isExternalLink.value);
-//     if (isExternalLink.value) {
-//         return {
-//             href: href,
-//             target: '_blank',
-//             rel: 'noopener',
-//         };
-//     }
-//     return {
-//         href: href,
-//     };
-// };
+
+const hasLink = computed(() => {
+
+    if (props.href === '') {
+        return false;
+    }
+
+    if (props.href === '<nolink>') {
+        return false;
+    }
+
+    return true;
+});
 </script>

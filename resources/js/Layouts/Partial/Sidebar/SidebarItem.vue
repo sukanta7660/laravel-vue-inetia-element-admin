@@ -1,12 +1,12 @@
 <template>
     <div v-if="item.is_active">
         <template v-if="!item.children">
-            <SidebarLink :href="item.link">
+            <SidebarLink :href="item.uri">
                 <el-menu-item
                     :class="{ 'submenu-title-noDropdown': !isNest }"
                 >
                     <Item
-                        icon="Edit"
+                        icon="HomeFilled"
                     />
                     <template #title>
                         {{ item.name }}
@@ -23,7 +23,7 @@
         >
             <template #title>
                 <Item
-                    icon="EditPen"
+                    icon="HomeFilled"
                     :title="item.name"
                 />
             </template>
