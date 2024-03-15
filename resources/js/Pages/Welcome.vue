@@ -1,7 +1,13 @@
 <template>
     <Head title="Welcome" />
     <LayoutAuthenticated>
-
+        <SectionMain>
+            <SectionTitle>
+                <h1 class="text-3xl font-semibold text-gray-800 leading-tight">Dashboard</h1>
+            </SectionTitle>
+            <h1 class="text-3xl font-semibold text-gray-800 leading-tight">Dashboard</h1>
+            <p class="mt-4 text-gray-600">You're logged in!</p>
+        </SectionMain>
     </LayoutAuthenticated>
 </template>
 
@@ -12,6 +18,8 @@ import {Edit} from "@element-plus/icons-vue";
 import {reactive} from "vue";
 import ModalComp from "@/Components/ModalComp.vue";
 import LayoutAuthenticated from "@/Layouts/LayoutAuthenticated.vue";
+import SectionMain from "@/Components/SectionMain.vue";
+import SectionTitle from "@/Components/SectionTitle.vue";
 
 const state = reactive({
     showModal: false,
