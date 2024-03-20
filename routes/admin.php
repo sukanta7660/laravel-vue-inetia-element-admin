@@ -2,6 +2,7 @@
 
 // :TODO: Add the admin routes here
 
-\Illuminate\Support\Facades\Route::get('/', function () {
-    return \Inertia\Inertia::render('Admin/Dashboard/Index');
-})->name('admin');
+use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
