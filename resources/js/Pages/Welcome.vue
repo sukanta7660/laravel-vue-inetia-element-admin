@@ -2,9 +2,6 @@
     <Head title="Welcome" />
     <LayoutAuthenticated>
         <SectionMain>
-            <SectionTitle>
-                <h1 class="text-3xl font-semibold text-gray-800 leading-tight">Dashboard</h1>
-            </SectionTitle>
             <h1 class="text-3xl font-semibold text-gray-800 leading-tight">Dashboard</h1>
             <p class="mt-4 text-gray-600">You're logged in!</p>
         </SectionMain>
