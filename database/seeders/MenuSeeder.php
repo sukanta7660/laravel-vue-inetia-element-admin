@@ -16,7 +16,7 @@ class MenuSeeder extends Seeder
         $menuItems = [
             [
                 'name'      => 'Dashboard',
-                'uri'       => '<nolink>',
+                'uri'       => '/admin',
                 'icon'      => 'HomeFilled',
                 'is_active' => 1,
                 'sort'      => 0,
@@ -67,5 +67,36 @@ class MenuSeeder extends Seeder
 
         $settingMenu = $menu->menuItems()->where('name', 'Settings')->first();
         $settingMenu->children()->createMany($settingMenuItems);
+
+        /*
+         * Menu Items for ACL
+         */
+
+        $aclMenuItems = [
+            [
+                'name'      => 'Roles',
+                'uri'       => '<nolink>',
+                'is_active' => 1,
+                'sort'      => 0,
+                'menu_id'   => $menu->id,
+            ],
+            [
+                'name'      => 'Permissions',
+                'uri'       => '<nolink>',
+                'is_active' => 1,
+                'sort'      => 1,
+                'menu_id'   => $menu->id,
+            ],
+            [
+                'name'      => 'Users',
+                'uri'       => '<nolink>',
+                'is_active' => 1,
+                'sort'      => 2,
+                'menu_id'   => $menu->id,
+            ]
+        ];
+
+        $aclMenu = $menu->menuItems()->where('name', 'Access Control')->first();
+        $aclMenu->children()->createMany($aclMenuItems);
     }
 }

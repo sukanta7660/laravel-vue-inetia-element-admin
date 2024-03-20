@@ -7,14 +7,14 @@
                 :collapse="isCollapse"
                 background-color="#304156"
                 text-color="#bfcbd9"
-                :unique-opened="false"
+                :unique-opened="true"
                 active-text-color="#409EFF"
                 :collapse-transition="false"
                 mode="vertical"
             >
                 <SidebarItem
-                    v-for="item in menu"
-                    :key="item.uri"
+                    v-for="(item, key) in menu"
+                    :menu-key="key"
                     :item="item"
                 />
             </el-menu>

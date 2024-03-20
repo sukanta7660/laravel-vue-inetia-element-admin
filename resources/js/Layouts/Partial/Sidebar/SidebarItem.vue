@@ -4,6 +4,7 @@
             <SidebarLink :href="item.uri">
                 <el-menu-item
                     :class="{ 'submenu-title-noDropdown': !isNest }"
+                    :index="menuKey"
                 >
                     <Item
                         :icon="item.icon"
@@ -18,7 +19,7 @@
         <el-sub-menu
             v-else
             ref="subMenu"
-            index="1"
+            :index="menuKey"
             popper-append-to-body
         >
             <template #title>
@@ -28,8 +29,7 @@
                 />
             </template>
             <SidebarItem
-                v-for="child in item.children"
-                :key="child.link"
+                v-for="(child, key) in item.children"
                 :is-nest="true"
                 :item="child"
                 class="nest-menu"
@@ -50,6 +50,10 @@ const props = defineProps({
     isNest: {
         type: Boolean,
         default: false,
-    }
+    },
+    menuKey: {
+        type: String,
+        default: 0,
+    },
 });
 </script>
