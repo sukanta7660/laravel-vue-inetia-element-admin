@@ -34,14 +34,8 @@ const isExternalLink = computed(() => isExternal(props.href));
 
 const hasLink = computed(() => {
 
-    if (props.href === '') {
-        return false;
-    }
+    return props.href !== '';
 
-    if (props.href === '<nolink>') {
-        return false;
-    }
 
-    return true;
 });
 </script>

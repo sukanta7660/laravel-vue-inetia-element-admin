@@ -75,21 +75,21 @@ class MenuSeeder extends Seeder
         $aclMenuItems = [
             [
                 'name'      => 'Roles',
-                'uri'       => '<nolink>',
+                'uri'       => '/<admin>/acl/roles',
                 'is_active' => 1,
                 'sort'      => 0,
                 'menu_id'   => $menu->id,
             ],
             [
                 'name'      => 'Permissions',
-                'uri'       => '<nolink>',
+                'uri'       => '/<admin>/acl/permissions',
                 'is_active' => 1,
                 'sort'      => 1,
                 'menu_id'   => $menu->id,
             ],
             [
                 'name'      => 'Users',
-                'uri'       => '<nolink>',
+                'uri'       => '/<admin>/acl/users',
                 'is_active' => 1,
                 'sort'      => 2,
                 'menu_id'   => $menu->id,

@@ -1,7 +1,7 @@
 <template>
     <div v-if="item.is_active">
         <template v-if="!item.children">
-            <SidebarLink :href="item.uri">
+            <SidebarLink :href="item?.link">
                 <el-menu-item
                     :class="{ 'submenu-title-noDropdown': !isNest }"
                     :index="menuKey"
