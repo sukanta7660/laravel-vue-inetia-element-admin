@@ -1,15 +1,15 @@
 <template>
     <LayoutAuthenticated>
         <SectionMain>
-            <h1 class="text-3xl font-semibold text-gray-800 leading-tight">Permission</h1>
+            <SectionTitleLineWithButton icon="Apple" title="Permissions" main/>
         </SectionMain>
     </LayoutAuthenticated>
 </template>
 
 <script setup>
-
 import LayoutAuthenticated from "@/Layouts/LayoutAuthenticated.vue";
 import SectionMain from "@/Components/SectionMain.vue";
+import SectionTitleLineWithButton from "@/Components/SectionTitleLineWithButton.vue";
 </script>
 
 <style scoped lang="scss">

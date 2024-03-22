@@ -15,7 +15,7 @@
 
 <script setup>
 import * as elIcons from "@element-plus/icons-vue";
-import SvgIcon from '@jamescoyle/vue-icon'
+import SvgIcon from "@jamescoyle/vue-icon"
 import * as mdiIcons from "@mdi/js";
 import {computed} from "vue";
 
