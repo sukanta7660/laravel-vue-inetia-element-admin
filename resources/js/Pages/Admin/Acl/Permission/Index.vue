@@ -1,7 +1,7 @@
 <template>
     <LayoutAuthenticated>
         <SectionMain>
-            <SectionTitleLineWithButton icon="Apple" title="Permissions" main/>
+            <SectionTitleLineWithButton icon="mdiApple" title="Permissions" main/>
         </SectionMain>
     </LayoutAuthenticated>
 </template>

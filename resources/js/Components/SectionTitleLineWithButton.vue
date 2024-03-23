@@ -5,11 +5,10 @@
     >
         <div class="flex items-center justify-start">
             <IconRounded
-                v-if="main && icon"
+                v-if="icon && main"
                 :icon="icon"
                 type="light"
                 class="mr-3"
-                bg
             />
             <BaseIcon
                 v-else-if="icon"

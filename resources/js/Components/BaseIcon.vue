@@ -4,7 +4,8 @@
         type="mdi"
         :path="sectionIcon"
         class="sub-el-icon"
-        :size="20"
+        viewbox="0 0 24 24"
+        :size="size"
     />
     <el-icon
         v-else

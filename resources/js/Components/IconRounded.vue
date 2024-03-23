@@ -1,9 +1,7 @@
 <template>
     <BaseIcon
         :icon="icon"
-        size="24"
-        :w="w"
-        :h="h"
+        :size="size"
         class="rounded-full"
         :class="bg ? colorsBgLight[type] : [colorsText[type], 'bg-gray-50 dark:bg-slate-800']"
     />
@@ -22,13 +20,9 @@ const props = defineProps({
         type: String,
         default: null
     },
-    w: {
-        type: String,
-        default: 'w-12'
-    },
-    h: {
-        type: String,
-        default: 'h-12'
+    size: {
+        type: [String, Number],
+        default: 24
     },
     bg: Boolean
 });
