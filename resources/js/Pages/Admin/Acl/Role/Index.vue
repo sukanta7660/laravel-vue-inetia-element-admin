@@ -12,22 +12,10 @@
                     />
                 </template>
 
-                <el-table :data="tableData" style="width: 100%">
-                    <el-table-column fixed prop="date" label="Date" width="150" />
-                    <el-table-column prop="name" label="Name" width="120" />
-                    <el-table-column prop="state" label="State" width="120" />
-                    <el-table-column prop="city" label="City" width="120" />
-                    <el-table-column prop="address" label="Address" width="600" />
-                    <el-table-column prop="zip" label="Zip" width="120" />
-                    <el-table-column fixed="right" label="Actions" width="120">
-                        <template #default>
-                            <el-button link type="primary" size="small" @click="handleClick"
-                            >Detail</el-button
-                            >
-                            <el-button link type="primary" size="small">Edit</el-button>
-                        </template>
-                    </el-table-column>
-                </el-table>
+                <TableComp
+                    :data="tableData"
+                    :columns="columns"
+                />
 
                 <template #footer>
                     <div class="text-right">
@@ -49,6 +37,7 @@ import LayoutAuthenticated from "@/Layouts/LayoutAuthenticated.vue";
 import SectionMain from "@/Components/SectionMain.vue";
 import Button from "@/Components/Button.vue";
 import CardBox from "@/Components/CardBox.vue";
+import TableComp from "@/Components/TableComp.vue";
 
 const tableData = [
     {
@@ -87,6 +76,56 @@ const tableData = [
         zip: 'CA 90036',
         tag: 'Office',
     },
+];
+
+const columns = [
+    {
+        prop: 'date',
+        label: 'Date',
+        width: '180',
+    },
+    {
+        prop: 'name',
+        label: 'Name',
+    },
+    {
+        prop: 'state',
+        label: 'State',
+    },
+    {
+        prop: 'city',
+        label: 'City',
+    },
+    {
+        prop: 'address',
+        label: 'Address',
+        width: '300',
+    },
+    {
+        prop: 'zip',
+        label: 'Zip',
+    },
+    {
+        prop: 'tag',
+        label: 'Tag',
+    },
+    {
+        prop: 'tag',
+        label: 'Tag',
+    },
+    {
+        prop: 'tag',
+        label: 'Tag',
+    },
+    {
+        prop: 'tag',
+        label: 'Tag',
+    },
+    {
+        prop: 'tag',
+        label: 'Tag',
+        width: '180',
+    }
 ];
 
 const handleClick = () => {
