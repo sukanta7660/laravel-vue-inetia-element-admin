@@ -1,15 +1,97 @@
 <template>
     <LayoutAuthenticated>
+        <Head title="Roles"/>
         <SectionMain>
-            <h1 class="text-3xl font-semibold text-gray-800 leading-tight">Role</h1>
+            <CardBox title="Roles" has-table>
+                <template #header-tools>
+                    <Button
+                        icon="mdiPlus"
+                        title="Add Role"
+                        type="primary"
+                        plain
+                    />
+                </template>
+
+                <el-table :data="tableData" style="width: 100%">
+                    <el-table-column fixed prop="date" label="Date" width="150" />
+                    <el-table-column prop="name" label="Name" width="120" />
+                    <el-table-column prop="state" label="State" width="120" />
+                    <el-table-column prop="city" label="City" width="120" />
+                    <el-table-column prop="address" label="Address" width="600" />
+                    <el-table-column prop="zip" label="Zip" width="120" />
+                    <el-table-column fixed="right" label="Actions" width="120">
+                        <template #default>
+                            <el-button link type="primary" size="small" @click="handleClick"
+                            >Detail</el-button
+                            >
+                            <el-button link type="primary" size="small">Edit</el-button>
+                        </template>
+                    </el-table-column>
+                </el-table>
+
+                <template #footer>
+                    <div class="text-right">
+                        <el-pagination
+                            background
+                            layout="prev, pager, next"
+                            :total="100"
+                        />
+                    </div>
+                </template>
+            </CardBox>
         </SectionMain>
     </LayoutAuthenticated>
 </template>
 
 <script setup>
-
+import {Head} from "@inertiajs/vue3";
 import LayoutAuthenticated from "@/Layouts/LayoutAuthenticated.vue";
 import SectionMain from "@/Components/SectionMain.vue";
+import Button from "@/Components/Button.vue";
+import CardBox from "@/Components/CardBox.vue";
+
+const tableData = [
+    {
+        date: '2016-05-03',
+        name: 'Tom',
+        state: 'California',
+        city: 'Los Angeles',
+        address: 'No. 189, Grove St, Los Angeles',
+        zip: 'CA 90036',
+        tag: 'Home',
+    },
+    {
+        date: '2016-05-02',
+        name: 'Tom',
+        state: 'California',
+        city: 'Los Angeles',
+        address: 'No. 189, Grove St, Los Angeles',
+        zip: 'CA 90036',
+        tag: 'Office',
+    },
+    {
+        date: '2016-05-04',
+        name: 'Tom',
+        state: 'California',
+        city: 'Los Angeles',
+        address: 'No. 189, Grove St, Los Angeles',
+        zip: 'CA 90036',
+        tag: 'Home',
+    },
+    {
+        date: '2016-05-01',
+        name: 'Tom',
+        state: 'California',
+        city: 'Los Angeles',
+        address: 'No. 189, Grove St, Los Angeles',
+        zip: 'CA 90036',
+        tag: 'Office',
+    },
+];
+
+const handleClick = () => {
+    console.log('clicked');
+};
 </script>
 
 <style scoped lang="scss">
