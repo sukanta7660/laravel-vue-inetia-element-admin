@@ -12,7 +12,7 @@
                     />
                 </template>
 
-                <TableComp
+                <DataTable
                     :data="tableData"
                     :columns="columns"
                 />
@@ -38,6 +38,7 @@ import SectionMain from "@/Components/SectionMain.vue";
 import Button from "@/Components/Button.vue";
 import CardBox from "@/Components/CardBox.vue";
 import TableComp from "@/Components/TableComp.vue";
+import DataTable from "@/Components/DataTbale.vue";
 
 const tableData = [
     {
@@ -101,31 +102,6 @@ const columns = [
         label: 'Address',
         width: '300',
     },
-    {
-        prop: 'zip',
-        label: 'Zip',
-    },
-    {
-        prop: 'tag',
-        label: 'Tag',
-    },
-    {
-        prop: 'tag',
-        label: 'Tag',
-    },
-    {
-        prop: 'tag',
-        label: 'Tag',
-    },
-    {
-        prop: 'tag',
-        label: 'Tag',
-    },
-    {
-        prop: 'tag',
-        label: 'Tag',
-        width: '180',
-    }
 ];
 
 const handleClick = () => {
