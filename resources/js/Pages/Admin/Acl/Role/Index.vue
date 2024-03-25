@@ -81,27 +81,30 @@ const tableData = [
 
 const columns = [
     {
-        prop: 'date',
+        field: 'date',
         label: 'Date',
         width: '180',
     },
     {
-        prop: 'name',
+        field: 'name',
         label: 'Name',
     },
     {
-        prop: 'state',
+        field: 'state',
         label: 'State',
     },
     {
-        prop: 'city',
+        field: 'city',
         label: 'City',
     },
     {
-        prop: 'address',
+        field: 'address',
         label: 'Address',
-        width: '300',
     },
+    {
+        field: 'zip',
+        label: 'Zip',
+    }
 ];
 
 const handleClick = () => {

@@ -13,6 +13,7 @@
                 :label="column.label"
                 :prop="column.field"
                 :sortable="column.sortable || false"
+                :width="column.width"
             >
 
                 <template #default="{ row }">
@@ -21,10 +22,10 @@
 
             </el-table-column>
 
-            <el-table-column v-if="showSearch || showAction" align="right">
+            <el-table-column width="150" v-if="showSearch || showAction" align="right">
 
                 <template v-if="showSearch" #header>
-                    <el-input v-model="search" placeholder="Type to search" size="mini"/>
+                    <el-input v-model="search" placeholder="Type to search" size="small"/>
                 </template>
 
                 <template v-if="showAction" #default="scope">
@@ -34,7 +35,7 @@
                             <el-button
                                 v-if="showView"
                                 plain
-                                size="mini"
+                                size="small"
                                 @click="handleAction(LIST_ITEM_ACTION_VIEW, scope.row)"
                             >
                                 <el-icon :size="18">
@@ -44,7 +45,7 @@
 
                             <el-button
                                 v-if="showPrint"
-                                plain size="mini"
+                                plain size="small"
                                 @click="handleAction(LIST_ITEM_ACTION_PRINT, scope.row)"
                             >
                                 <el-icon :size="18">
@@ -55,7 +56,7 @@
                             <el-button
                                 v-if="showStatusUpdate"
                                 plain
-                                size="mini"
+                                size="small"
                                 @click="handleAction(LIST_ITEM_ACTION_UPDATE_STATUS, scope.row)"
                             >
                                 <el-icon :size="18">
@@ -66,7 +67,7 @@
                             <el-button
                                 v-if="showEdit"
                                 plain
-                                size="mini"
+                                size="small"
                                 @click="handleAction(LIST_ITEM_ACTION_UPDATE, scope.row)"
                             >
                                 <el-icon :size="18">
@@ -77,7 +78,7 @@
                             <el-button
                                 v-if="showDelete"
                                 plain
-                                size="mini"
+                                size="small"
                                 type="danger"
                                 @click="handleAction(LIST_ITEM_ACTION_DELETE, scope.row)"
                             >
