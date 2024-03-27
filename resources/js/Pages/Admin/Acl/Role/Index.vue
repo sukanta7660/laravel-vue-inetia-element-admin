@@ -19,7 +19,7 @@
                         size="large"
                         style="width: 35%"
                     />
-                    <FilterComp class="data-filter"/>
+                    <FilterComp class="data-filter" button-size="large"/>
                 </div>
 
                 <DataTable

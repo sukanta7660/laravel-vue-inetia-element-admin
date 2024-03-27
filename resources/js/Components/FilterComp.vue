@@ -9,7 +9,7 @@
                 content="this is content, this is content, this is content"
             >
                 <template #reference>
-                    <el-button>
+                    <el-button :size="buttonSize">
                         <el-badge :hidden="false" class="topedAbs"/>
                         <el-icon style="margin-right: 5px;">
                             <Filter/>
@@ -29,12 +29,12 @@
                 content="this is content, this is content, this is content"
             >
                 <template #reference>
-                    <el-button>
+                    <el-button :size="buttonSize">
                         <el-badge :hidden="false" class="topedAbs"/>
                         <el-icon style="margin-right: 5px;">
-                            <Filter/>
+                            <Reading/>
                         </el-icon>
-                        Filters
+                        Columns
                         <el-icon class="el-icon--right">
                             <ArrowDown/>
                         </el-icon>
@@ -49,12 +49,12 @@
                 content="this is content, this is content, this is content"
             >
                 <template #reference>
-                    <el-button>
+                    <el-button :size="buttonSize">
                         <el-badge :hidden="false" class="topedAbs"/>
                         <el-icon style="margin-right: 5px;">
-                            <Filter/>
+                            <Sort/>
                         </el-icon>
-                        Filters
+                        Sort
                         <el-icon class="el-icon--right">
                             <ArrowDown/>
                         </el-icon>
@@ -68,9 +68,9 @@
 <script setup>
 import {reactive} from "vue";
 import FilterItem from "@/Pieces/FilterItem.vue";
-import {Filter, ArrowDown} from "@element-plus/icons-vue";
+import {Filter, ArrowDown, Sort, Reading} from "@element-plus/icons-vue";
 
-const props = defineProps(['filters', 'filterOptions', 'columns', 'sorting']);
+const props = defineProps(['filters', 'filterOptions', 'columns', 'sorting', 'buttonSize']);
 
 const state = reactive({
     columns: props.columns,
