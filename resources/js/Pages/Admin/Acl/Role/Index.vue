@@ -12,6 +12,16 @@
                     />
                 </template>
 
+                <div class="data-search-filter-wrapper">
+                    <SearchBox
+                        v-model="state.search"
+                        placeholder="Search roles"
+                        size="large"
+                        style="width: 35%"
+                    />
+                    <FilterComp class="data-filter"/>
+                </div>
+
                 <DataTable
                     :data="tableData"
                     :columns="columns"
@@ -39,6 +49,9 @@ import Button from "@/Components/Button.vue";
 import CardBox from "@/Components/CardBox.vue";
 import TableComp from "@/Components/TableComp.vue";
 import DataTable from "@/Components/DataTbale.vue";
+import {reactive} from "vue";
+import SearchBox from "@/Components/SearchBox.vue";
+import FilterComp from "@/Components/FilterComp.vue";
 
 const tableData = [
     {
@@ -107,11 +120,24 @@ const columns = [
     }
 ];
 
+const state = reactive({
+    search: ''
+});
+
 const handleClick = () => {
     console.log('clicked');
 };
 </script>
 
 <style scoped lang="scss">
+.data-search-filter-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
 
+    .data-filter {
+        margin-right: 1.5rem;
+    }
+}
 </style>
